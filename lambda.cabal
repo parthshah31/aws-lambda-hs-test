@@ -1,0 +1,57 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: b0a5efb55ba42fc2c1bbb5e991c917c33bc026945a05fa03b14ce8013bd4942c
+
+name:           lambda
+version:        0.1.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/lambda#readme>
+homepage:       https://github.com/githubuser/lambda#readme
+bug-reports:    https://github.com/githubuser/lambda/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/lambda
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_lambda
+  hs-source-dirs:
+      src
+  default-extensions: RecordWildCards OverloadedLists OverloadedStrings DeriveGeneric
+  ghc-options: -O2 -static -threaded
+  cc-options: -static
+  ld-options: -static -pthread
+  build-depends:
+      aeson
+    , aws-lambda-haskell-runtime >=3.0.0
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+executable bootstrap
+  main-is: Main.hs
+  other-modules:
+      Paths_lambda
+  hs-source-dirs:
+      app
+  default-extensions: RecordWildCards OverloadedLists OverloadedStrings DeriveGeneric
+  ghc-options: -O2 -static -threaded -threaded -rtsopts -O2 -static -with-rtsopts=-N
+  cc-options: -static -static
+  ld-options: -static -pthread -static -pthread
+  build-depends:
+      aeson
+    , aws-lambda-haskell-runtime >=3.0.0
+    , base >=4.7 && <5
+    , lambda
+  default-language: Haskell2010
